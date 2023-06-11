@@ -18,10 +18,7 @@ const getAuthors = async (req, res) => {
 const createAuthors = async (req, res) => {
   const newAuthor = req.body; // {title,content,email,category}
   const response = await authors.createAuthors(newAuthor);
-  res.status(201).json({
-      "items_created": response,
-      data: newAuthor
-  });
+  res.status(201).json({message: `usuario creado: ${newAuthor.email}`});
 };
 
 module.exports = {
