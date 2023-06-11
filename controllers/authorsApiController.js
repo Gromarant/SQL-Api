@@ -9,13 +9,22 @@ const getAuthors = async (req, res) => {
     author = await authors.getAuthorByEmail(req.query.email);
   }
   else {
-    console.log('getAllAuthors');
     author = await authors.getAllAuthors();
   };
   res.status(200).json(author); // [] con las entries encontradas
 };
 
+// [POST] http://localhost:3000/api/authors/ 
+const createAuthors = async (req, res) => {
+  const newAuthor = req.body; // {title,content,email,category}
+  const response = await authors.createAuthors(newAuthor);
+  res.status(201).json({
+      "items_created": response,
+      data: newAuthor
+  });
+};
 
 module.exports = {
-  getAuthors
+  getAuthors,
+  createAuthors,
 };
