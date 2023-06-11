@@ -10,13 +10,17 @@ CREATE TABLE authors (
 -- Tabla entries
 CREATE TABLE entries (
   id_entry serial NOT NULL PRIMARY KEY, 
-  title varchar(100) NOT NULL, 
+  title varchar(100) NOT NULL,
   content text NOT NULL, 
   date date DEFAULT CURRENT_DATE,
   id_author int,
   category varchar(15),
   FOREIGN KEY (id_author) REFERENCES authors(id_author)
 );
+
+--Restricción de título único // otra forma de 
+ALTER TABLE entries
+    ADD CONSTRAINT unique_title UNIQUE(title)
 
 
 -- Insertar datos de prueba en tabla authors
