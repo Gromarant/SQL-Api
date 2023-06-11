@@ -10,6 +10,7 @@ const booksRoutes = require('./routes/booksRoutes')
 const productsRoutes = require('./routes/productsRoutes')
 const productsApiRoutes = require('./routes/productsApiRoutes')
 const entriesApiRoutes = require('./routes/entriesApiRoutes')
+const authorsApiRoutes = require('./routes/authorsApiRoutes')
 
 const app = express()
 const port = 3000
@@ -37,6 +38,7 @@ app.use('/books',booksRoutes); // Books
 app.use('/products',productsRoutes); // Rutas web products
 app.use('/api/products',productsApiRoutes); // Rutas web API products
 app.use('/api/entries',entriesApiRoutes); // Rutas API entries
+app.use('/api/authors',authorsApiRoutes); // Rutas API authors
 app.use(error404); // Middleware Para ruta no encontrada (404)
 
 app.listen(port, () => {
