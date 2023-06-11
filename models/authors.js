@@ -34,12 +34,29 @@ const getAllAuthors = async () => {
 };
 
 // CREATE
-const createAuthors = async (entry) => {
-  const { name, surname, email, image } = entry;
+const createAuthor = async (author) => {
+  const { name, surname, email, image } = author;
   let client, result;
   try {
       client = await pool.connect(); // Espera a abrir conexion
-      const data = await client.query(queries.createAuthors,[name, surname, email, image])
+      const data = await client.query(queries.createAuthor,[name, surname, email, image])
+      result = data.rowCount
+  } catch (err) {
+      console.log(err);
+      throw err;
+  } finally {
+      client.release();
+  };
+  return result
+};
+
+//UPDATE
+const updateAuthor = async (author) => {
+  const { name, surname, new_email, image, email } = author;
+  let client, result;
+  try {
+      client = await pool.connect(); // Espera a abrir conexion
+      const data = await client.query(queries.updateAuthor, [name, surname, new_email, image, email])
       result = data.rowCount
   } catch (err) {
       console.log(err);
@@ -53,7 +70,8 @@ const createAuthors = async (entry) => {
 const authors = {
   getAuthorByEmail,
   getAllAuthors,
-  createAuthors
+  createAuthor,
+  updateAuthor,
 };
 
 module.exports = authors;

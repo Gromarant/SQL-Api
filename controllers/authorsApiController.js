@@ -15,13 +15,27 @@ const getAuthors = async (req, res) => {
 };
 
 // [POST] http://localhost:3000/api/authors/ 
-const createAuthors = async (req, res) => {
-  const newAuthor = req.body; // {title,content,email,category}
-  const response = await authors.createAuthors(newAuthor);
-  res.status(201).json({message: `usuario creado: ${newAuthor.email}`});
+const createAuthor = async (req, res) => {
+  const newAuthor = req.body; // {name, surname, email, image}
+  const response = await authors.createAuthor(newAuthor);
+  res.status(201).json({
+    message: `usuario creado: ${newAuthor.email}`
+  });
 };
+
+// [PUT] http://localhost:3000/api/authors/ Actualiza los datos de un autor y retorna un status 200. Payload {message: "usuario actualizado: guillermu@thebridgeschool.es"}
+const updateAuthor = async (req, res) => {
+  const dataAuthor = req.body; // {name, surname, email, image}
+  const response = await authors.updateAuthor(dataAuthor);
+  res.status(200).json({
+    message: `usuario actualizado: ${dataAuthor.email}`
+  });
+};
+
+
 
 module.exports = {
   getAuthors,
-  createAuthors,
+  createAuthor,
+  updateAuthor,
 };
