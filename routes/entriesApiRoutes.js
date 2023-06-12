@@ -10,10 +10,7 @@ entriesApiRouter.delete('/', entriesApiController.deleteEntry);
 
 module.exports = entriesApiRouter;
 
-// GET http://localhost:3000/api/entries --> ALL
-// GET http://localhost:3000/api/entries?email=hola@gmail.com --> por email
-// POST http://localhost:3000/api/entries
-/* PUT http://localhost:3000/api/entries
+/* 
 {
     "title":"noticia desde Node",
     "content":"va a triunfar esto2",
