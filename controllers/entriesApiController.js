@@ -14,7 +14,10 @@ const getEntries = async (req, res) => {
         res.status(200).json(entries); // [] con las entries encontradas
     }
     catch(error) {
-    console.error(`Error: ${error}`);
+        console.error(`Error: ${error}`);
+        res.status(400).json({
+            msj: `ERROR: ${error}`
+        });
     }
 };
 
@@ -29,7 +32,10 @@ const createEntry = async (req, res) => {
         });
     }
     catch(error) {
-    console.error(`Error: ${error}`);
+        console.error(`Error: ${error}`);
+        res.status(400).json({
+            msj: `ERROR: ${error}`
+        });
     }
 };
 
@@ -44,19 +50,25 @@ const updateEntry = async (req, res) => {
         });
     }
     catch(error) {
-    console.error(`Error: ${error}`);
+        console.error(`Error: ${error}`);
+        res.status(400).json({
+            msj: `ERROR: ${error}`
+        });
     }
 };
 
 // [DELETE] http://localhost:3000/api/entries/ {message: "Se ha borrado la entry 'Título de noticia' "}
 const deleteEntry = async (req, res) => {
     try {
-        const dataEntry = req.body; // {new_title,content,email,category, title}
+        const dataEntry = req.body; // {title}
         const response = await entry.deleteEntry(dataEntry);
         res.status(200).json({message: `Se ha borrado la entry '${dataEntry.title}' `});
     }
     catch(error) {
-    console.error(`Error: ${error}`);
+        console.error(`Error: ${error}`);
+        res.status(400).json({
+            msj: `ERROR: ${error}`
+          });
     }
 };
 

@@ -5,7 +5,6 @@ const authors = require('../models/authors');
 const getAuthors = async (req, res) => {
   try {
     let author;
-    console.log('req.query.email', req.query.email);
     if (req.query.email) {
       author = await authors.getAuthorByEmail(req.query.email);
     }
@@ -16,6 +15,9 @@ const getAuthors = async (req, res) => {
   }
   catch(error) {
     console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 };
 
@@ -30,6 +32,9 @@ const createAuthor = async (req, res) => {
   }
   catch(error) {
     console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 };
 
@@ -45,6 +50,9 @@ const updateAuthor = async (req, res) => {
   }
   catch(error) {
     console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 };
 
@@ -53,11 +61,14 @@ const updateAuthor = async (req, res) => {
 const deleteAuthor = async (req, res) => {
   try {
     const dataAuthor = req.body; // {email}
-    const response = await entry.deleteAuthor(dataAuthor);
+    const response = await authors.deleteAuthor(dataAuthor);
     res.status(200).json({message: `Se ha borrado ${dataAuthor.email} `});
   }
   catch(error) {
     console.error(`Error: ${error}`);
+    res.status(400).json({
+      msj: `ERROR: ${error}`
+    });
   }
 };
 

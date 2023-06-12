@@ -1,5 +1,5 @@
-const manage404 = function (req,res,next){
-	res.status(404).json({msj:'Error! 404. Ruta no encontrada :)'});
+const error404 = function (req,res,next){
+	res.status(404).json({msj:`Error! 404. Ruta ${req.url} no encontrada`});
 };
 
-module.exports = manage404;
+module.exports = error404;

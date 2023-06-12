@@ -7,7 +7,7 @@ const getAuthorByEmail = async (email) => {
     try {
         client = await pool.connect(); // Espera a abrir conexion
         const data = await client.query(queries.getAuthorByEmail, [email])
-        result = data.rows
+        result = data.rows[0]
     } catch (err) {
         console.log(err);
         throw err;
