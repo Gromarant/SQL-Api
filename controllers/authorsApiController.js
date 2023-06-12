@@ -23,19 +23,27 @@ const createAuthor = async (req, res) => {
   });
 };
 
-// [PUT] http://localhost:3000/api/authors/ Actualiza los datos de un autor y retorna un status 200. Payload {message: "usuario actualizado: guillermu@thebridgeschool.es"}
+// [PUT] http://localhost:3000/api/authors/ 
+//{message: "usuario actualizado: guillermu@thebridgeschool.es"}
 const updateAuthor = async (req, res) => {
-  const dataAuthor = req.body; // {name, surname, email, image}
+  const dataAuthor = req.body; // {name, surname, new_email, image, email}
   const response = await authors.updateAuthor(dataAuthor);
   res.status(200).json({
     message: `usuario actualizado: ${dataAuthor.email}`
   });
 };
 
-
+// [DELETE] http://localhost:3000/api/authors/
+//{message: "Se ha borrado guillermu@thebridgeschool.es"}
+const deleteAuthor = async (req, res) => {
+  const dataAuthor = req.body; // {email}
+  const response = await entry.deleteAuthor(dataAuthor);
+  res.status(200).json({message: `Se ha borrado ${dataAuthor.email} `});
+};
 
 module.exports = {
   getAuthors,
   createAuthor,
   updateAuthor,
+  deleteAuthor
 };
