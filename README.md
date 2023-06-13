@@ -4,6 +4,14 @@ Welcome! This README file will provide you with an overview of the API, its feat
 <br>
 <br>
 
+## API structure
+This rest api is created on node.js with express (server), javascript files with business logic, models for data access control, databases with postgreSQL (relational database)
+<br>
+
+[<img align="center" src="./public/assets/images/architecture.png">](/README.md)
+<br>
+<br>
+
 ## API Base URL
 The base URL's for accessing the API are: http://localhost:3000/api/authors and http://localhost:3000/api/entries
 <br>
@@ -11,9 +19,10 @@ The base URL's for accessing the API are: http://localhost:3000/api/authors and 
 
 ### Introduction
 
-The SQL-Api is an API for managing a collection of authors and posts. It provides endpoints to retrieve, search, create, update, and delete them.
+The SQL-Api is an API for managing a collection of authors and entries. It provides endpoints to retrieve, search, create, update, and delete them.
 <br>
 <br>
+
 ### Getting Started
 Prerequisites
 To use this API, you will need:
@@ -141,6 +150,9 @@ That's it!, Happy Coding!!!.
 <br>
 ___
 
+<br>
+
+[<img align="left" width="64" height="64" src="./public/assets/images/favicon-2023.png">](https://www.gromarant.com/)
 <br>
 
 [&copy; Mariangelica Rodriguez](https://www.linkedin.com/in/mariangelica-rodr%C3%ADguez-p%C3%A9rez/)
