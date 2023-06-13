@@ -16,6 +16,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan(':method :host :status :param[id] - :response-time ms :body'));
 
 //Rutas 
+ 
+app.get('/', (req, res) => {
+  res.send('Bienvenid@ a SQL-Api!, tienes rutas disponibles para authors (https://sql-api-delta.vercel.app/api/authors) y entries (https://sql-api-delta.vercel.app/api/entries)')
+});
 app.use('/api/entries',entriesApiRoutes); // Rutas API entries
 app.use('/api/authors',authorsApiRoutes); // Rutas API authors
 app.use(error404); // Middleware Para ruta no encontrada (404)
