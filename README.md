@@ -11,7 +11,7 @@ The base URL's for accessing the API are: http://localhost:3000/api/authors and 
 
 ### Introduction
 
-The SQL-Api is an API for managing a collection of movies. It provides endpoints to retrieve, search, create, update, and delete movies.
+The SQL-Api is an API for managing a collection of authors and posts. It provides endpoints to retrieve, search, create, update, and delete them.
 <br>
 <br>
 ### Getting Started
@@ -20,13 +20,13 @@ To use this API, you will need:
 
   1. Ensure that you have a local development environment set up with Node.js and npm installed.
   2. Make sure you have an API key for authentication purposes. 
-  3. TEST_API_KEY=dh189cv27
+  3. TEST_API_KEY=dh1t9cv27
 <br>
 <br>
 
 ### Installation:
 
-  1. Clone the API-REST-Film repository to your local machine.
+  1. Clone the SQL-Api repository to your local machine.
   2. Navigate to the project directory.
   3. Run the following command to install the dependencies:
 <br>
@@ -50,7 +50,7 @@ In the project directory, run the following command to start the API server:
 npm run dev
 ```
 <br>
-The API will be accessible at http://localhost:3000/api/film.
+The API will be accessible at http://localhost:3000/api/authors and http://localhost:3000/api/entries.
 <br>
 <br>
 
@@ -61,112 +61,86 @@ The API will be accessible at http://localhost:3000/api/film.
   - Use the appropriate HTTP methods (GET, POST, PUT, DELETE) and URLs to interact with the API.
   - Include your API key in the request URL for authentication when necessary.
 
-### Examples:
+### Examples routes:
 <br>
 
-1. To get information about a movie with the title "Titanic", send a GET request to 
+#### To manage Authors:
+
+1. To get information about one author with the email , send a GET request to 
   ```
-  http://localhost:3000/api/film/Titanic
+  http://localhost:3000/api/authors?email=user@email.com
   ```
 <br>
-request and result:
 
+2. To search for all authors, send a GET request to
+  ```
+  http://localhost:3000/api/authors
+  ```
 <br>
 
-[<img align="center" width="" height="" src="./assets/images/getOneFilmAPI.png">](/README.md)
+3. To create a new author, send a POST request to 
+```
+http://localhost:3000/api/authors?API_KEY=YOUR_API_KEY
+```
 <br>
+
+4. To update an existing author, send a PUT request to 
+```
+http://localhost:3000/api/authors?API_KEY=YOUR_API_KEY
+```
 <br>
+
+5. To delete an author, send a DELETE request to 
+
+```
+http://localhost:3000/api/authors?API_KEY=YOUR_API_KEY.
+```
 ___
 <br>
+<br>
 
-2. To search for movies containing the keyword "tita", send a GET request to 
+#### To manage Entries:
+
+1. To get information about entries of one author with the email , send a GET request to 
+  ```
+  http://localhost:3000/api/entries?email=user@email.com
+  ```
+<br>
+
+2. To search for all entries, send a GET request to
+  ```
+  http://localhost:3000/api/entries
+  ```
+<br>
+
+3. To create a new entry, send a POST request to 
+```
+http://localhost:3000/api/entries?API_KEY=YOUR_API_KEY
+```
+<br>
+
+4. To update an existing entry, send a PUT request to 
+```
+http://localhost:3000/api/entries?API_KEY=YOUR_API_KEY
+```
+<br>
+
+5. To delete an entry, send a DELETE request to 
 
 ```
-http://localhost:3000/api/film/search/tita
+http://localhost:3000/api/entries?API_KEY=YOUR_API_KEY.
 ```
-
-<br>
-request and result:
-
-<br>
-
-[<img align="center" src="./assets/images/getManyFilmAPI.png">](/README.md)
-<br>
-<br>
 ___
-<br>
-
-3. To create a new movie, send a POST request to 
-```
-http://localhost:3000/api/film?API_KEY=YOUR_API_KEY
-```
-
-<br>
-request:
-
-  with the movie details in the request body as JSON.
-<br>
-
-[<img align="center" src="./assets/images/postOneFilmAPI.png">](/README.md)
-<br>
-<br>
-
-  result
-<br>
-
-[<img align="center" height="150" src="./assets/images/respPost.png">](/README.md)
-<br>
-<br>
-___
-<br>
-
-4. To update an existing movie, send a PUT request to 
-```
-http://localhost:3000/api/film?API_KEY=YOUR_API_KEY
-```
-
-<br>
-request:
-
-  with the updated movie details in the request body as JSON.
-<br>
-
-[<img align="center" src="./assets/images/putOneMvie.png">](/README.md)
-<br>
-<br>
-
-  result
-<br>
-
-[<img align="center" height="150" src="./assets/images/respPut.png">](/README.md)
-<br>
-<br>
-___
-<br>
-
-5. To delete the movie with the title "Titanic", send a DELETE request to 
-
-```
-http://localhost:3000/api/film/titanic?API_KEY=YOUR_API_KEY.
-```
-
-<br>
-request and results:
-<br>
-
-[<img align="center" height="300" src="./assets/images/deleteMovie.png">](/README.md)
 <br>
 <br>
 
 Remember to replace YOUR_API_KEY with your actual API key in the request URLs that require authentication.
 <br>
-That's it! You can now use the API-REST-Film to manage movies by sending HTTP requests to the provided endpoints, Happy Coding!!!.
+That's it!, Happy Coding!!!.
 <br>
 <br>
 ___
 
 <br>
 
-[<img align="left" width="64" height="64" src="./assets/images/favicon-2023.png">](https://www.gromarant.com/)
-<br>
 [&copy; Mariangelica Rodriguez](https://www.linkedin.com/in/mariangelica-rodr%C3%ADguez-p%C3%A9rez/)
