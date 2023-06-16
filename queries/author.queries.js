@@ -15,7 +15,8 @@ const queries = {
       image=$4
 	WHERE email=$5;`,
   deleteAuthor: `DELETE FROM public.authors
-	WHERE email=$1`
+	WHERE email=$1
+  ON DELETE CASCADE`
 };
 
 module.exports = queries;
